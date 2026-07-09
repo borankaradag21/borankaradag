@@ -1,55 +1,55 @@
 .portfolio-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 6rem;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 6rem;
 }
 
 .split-section {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 8rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: start;
 }
 
 .footer {
   text-align: center;
-  padding: 4rem 0;
+  padding: 3rem 0;
   color: var(--text-secondary);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
-  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  border-top: 1px dashed var(--border-color);
+  margin-top: 3rem;
 }
 
 .section-title {
-  font-size: 3rem;
-  margin-bottom: 4rem;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
   color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
 }
 
 .section-title::before {
   content: '';
-  display: block;
-  width: 60px;
-  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 5px;
   background-color: var(--accent-color);
+  border-radius: 4px;
 }
 
-@media (max-width: 1024px) {
-  .portfolio-container { padding: 0 2rem; gap: 5rem; }
-  .main-content { gap: 5rem; }
-  .split-section { grid-template-columns: 1fr; gap: 5rem; }
-  .section-title { font-size: 2.5rem; margin-bottom: 2.5rem; }
+@media (max-width: 900px) {
+  .portfolio-container { padding: 0 1.5rem; gap: 4rem; }
+  .main-content { gap: 4rem; }
+  .split-section { grid-template-columns: 1fr; gap: 4rem; }
 }

@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-color: #0a0a0a;
-  --surface-color: #141414;
-  --text-primary: #ededed;
-  --text-secondary: #888888;
-  --accent-color: #c9a96e; /* Sophisticated muted gold/brass */
-  --border-color: #222222;
+  --bg-color: #0d1117;
+  --surface-color: #161b22;
+  --surface-hover: #21262d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --accent-color: #e2a856; /* Vibrant architectural copper/gold */
+  --accent-light: rgba(226, 168, 86, 0.15);
+  --border-color: #30363d;
+  --grid-color: rgba(255, 255, 255, 0.02);
   
-  --font-primary: 'Playfair Display', serif; /* For elegant headings */
-  --font-secondary: 'Inter', sans-serif; /* For clean corporate text */
+  --font-primary: 'Outfit', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
   
-  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-med: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -25,15 +27,19 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -43,34 +49,36 @@ p {
 
 .btn-primary {
   display: inline-block;
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 1rem 2.5rem;
-  font-family: var(--font-secondary);
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  background: var(--accent-light);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition-med);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover {
-  background: var(--text-primary);
-  color: var(--bg-color);
-  border-color: var(--text-primary);
+  background: var(--accent-color);
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(226, 168, 86, 0.2);
 }
 
-/* Elegant Reveal Animations */
-@keyframes revealUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Dynamic Reveal Animations */
+@keyframes slideFadeUp {
+  0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .animate-reveal {
-  animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
@@ -79,8 +87,8 @@ p {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 
-/* Custom Scrollbar - Minimal */
-::-webkit-scrollbar { width: 4px; }
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background: var(--border-color); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
