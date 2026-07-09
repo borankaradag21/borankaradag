@@ -1,4 +1,5 @@
 import React from 'react';
+import profilePic from '../assets/profile.jpeg';
 import './Header.css';
 
 const Header = () => {
@@ -13,10 +14,7 @@ const Header = () => {
         </div>
       </div>
       <div className="header-image-container">
-        {/* Placeholder for the user's photo */}
-        <div className="profile-photo-placeholder">
-          <span className="photo-text">Fotoğrafınız</span>
-        </div>
+        <img src={profilePic} alt="Boran Karadağ" className="profile-photo" />
       </div>
     </header>
   );
