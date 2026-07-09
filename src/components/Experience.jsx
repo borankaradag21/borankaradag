@@ -30,7 +30,7 @@ const Experience = () => {
   };
 
   return (
-    <section className="experience-section animate-fade-in delay-300">
+    <section className="experience-section animate-reveal delay-300">
       <h2 className="section-title">Deneyim</h2>
       <div className="accordion">
         {experiences.map((exp, index) => (
@@ -46,9 +46,7 @@ const Experience = () => {
                 <h3>{exp.company}</h3>
                 <span className="role">{exp.role}</span>
               </div>
-              <div className="accordion-icon">
-                {activeIndex === index ? '−' : '+'}
-              </div>
+              <div className="accordion-icon">+</div>
             </button>
             <div 
               className="accordion-content"

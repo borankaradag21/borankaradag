@@ -1,20 +1,23 @@
 .about-section {
-  margin-top: 2rem;
+  max-width: 900px;
 }
 
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
 .about-content p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 2;
+  font-weight: 300;
 }
 
 .about-content p:first-of-type {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-primary);
+  font-weight: 400;
+  line-height: 1.8;
 }

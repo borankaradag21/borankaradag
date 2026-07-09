@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 70vh;
-  gap: 2rem;
-  padding: 2rem 0;
+  min-height: 90vh;
+  gap: 4rem;
+  padding-top: 4rem;
 }
 
 .header-content {
@@ -12,27 +12,28 @@
   max-width: 600px;
 }
 
-.header-title {
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.header-subtitle {
-  font-size: 2rem;
+.header-eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   color: var(--accent-color);
   margin-bottom: 1.5rem;
   font-weight: 500;
 }
 
+.header-title {
+  font-size: 5.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
 .header-tagline {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+  max-width: 90%;
 }
 
 .header-image-container {
@@ -41,36 +42,59 @@
   justify-content: flex-end;
 }
 
+.image-wrapper {
+  position: relative;
+  width: 480px;
+  height: 640px;
+  overflow: hidden;
+}
+
+.image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .profile-photo {
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 20px 100px 20px 100px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  border: 2px solid var(--glass-border);
-  transition: transform 0.5s ease;
+  filter: grayscale(15%) contrast(1.05);
+  transition: var(--transition-slow);
 }
 
-.profile-photo:hover {
-  transform: scale(1.02);
-  border-color: rgba(212, 175, 55, 0.4);
+.image-wrapper:hover .profile-photo {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.05);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .header {
     flex-direction: column-reverse;
-    text-align: center;
-    padding-top: 4rem;
+    text-align: left;
+    padding-top: 6rem;
+    min-height: auto;
   }
   
   .header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 100%;
   }
   
-  .profile-photo {
-    width: 300px;
-    height: 380px;
+  .header-title {
+    font-size: 4rem;
+  }
+  
+  .header-image-container {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
   }
 }

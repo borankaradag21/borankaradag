@@ -4,17 +4,22 @@ import './Header.css';
 
 const Header = () => {
   return (
-    <header className="header animate-fade-in">
+    <header className="header animate-reveal">
       <div className="header-content">
-        <h1 className="header-title">Boran Karadağ</h1>
-        <h2 className="header-subtitle">Mimarlık İşleri</h2>
-        <p className="header-tagline">Modern, Sürdürülebilir ve Estetik Mekanlar Tasarlıyoruz.</p>
-        <div className="header-actions">
+        <div className="header-eyebrow animate-reveal delay-100">Mimar</div>
+        <h1 className="header-title animate-reveal delay-200">Boran Karadağ</h1>
+        <p className="header-tagline animate-reveal delay-300">
+          Mekanların dilini çözüyor, işlevselliği zamansız ve minimal bir estetikle buluşturuyoruz. 
+          Kurumsal mimari çözümler ve sürdürülebilir yaşam alanları tasarlıyoruz.
+        </p>
+        <div className="header-actions animate-reveal delay-400">
           <a href="#projects" className="btn-primary">Projelerimi İncele</a>
         </div>
       </div>
-      <div className="header-image-container">
-        <img src={profilePic} alt="Boran Karadağ" className="profile-photo" />
+      <div className="header-image-container animate-reveal delay-300">
+        <div className="image-wrapper">
+          <img src={profilePic} alt="Boran Karadağ" className="profile-photo" />
+        </div>
       </div>
     </header>
   );

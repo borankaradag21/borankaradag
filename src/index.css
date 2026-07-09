@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  --bg-color: #050505;
-  --text-primary: #f8f8f8;
-  --text-secondary: #a1a1aa;
-  --accent-color: #d4af37; /* Gold/Bronze accent for architectural premium feel */
-  --accent-hover: #f1c40f;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --font-primary: 'Outfit', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --bg-color: #0a0a0a;
+  --surface-color: #141414;
+  --text-primary: #ededed;
+  --text-secondary: #888888;
+  --accent-color: #c9a96e; /* Sophisticated muted gold/brass */
+  --border-color: #222222;
+  
+  --font-primary: 'Playfair Display', serif; /* For elegant headings */
+  --font-secondary: 'Inter', sans-serif; /* For clean corporate text */
+  
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-med: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -22,70 +24,53 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);
-  font-family: var(--font-primary);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  font-family: var(--font-secondary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 p {
   font-family: var(--font-secondary);
-}
-
-.glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  box-shadow: var(--glass-shadow);
-  padding: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glass-panel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
-  border-color: rgba(212, 175, 55, 0.2);
+  font-weight: 300;
 }
 
 .btn-primary {
+  display: inline-block;
   background: transparent;
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-family: var(--font-primary);
-  font-weight: 500;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 1rem 2.5rem;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  transition: var(--transition-med);
 }
 
 .btn-primary:hover {
-  background: var(--accent-color);
+  background: var(--text-primary);
   color: var(--bg-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--text-primary);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+/* Elegant Reveal Animations */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease forwards;
+.animate-reveal {
+  animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
 }
 
@@ -94,17 +79,8 @@ p {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-color);
-}
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
-}
+/* Custom Scrollbar - Minimal */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--border-color); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
